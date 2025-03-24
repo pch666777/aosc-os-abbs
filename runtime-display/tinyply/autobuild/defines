@@ -1,0 +1,10 @@
+PKGNAME=tinyply
+PKGSEC=libs
+PKGDES="C++11 ply 3d mesh format importer & exporter"
+PKGDEP="gcc-runtime glibc"
+
+CMAKE_AFTER=(
+    -DSHARED_LIB=TRUE
+)
+
+ABTYPE=cmake

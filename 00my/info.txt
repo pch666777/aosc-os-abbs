@@ -1,0 +1,2 @@
+ 
+sudo ciel build -i main draco hdf5 tiledb libpmc tinyply teaserpp ceres geoarrow-c pdal-nitro

@@ -1,0 +1,14 @@
+# We don't need a static library, but draco will always create static lib target
+# so remove it
+
+BUILD_PATH="${SRCDIR}"/abdist
+DRACO_CMAKE=usr/share/cmake/draco/draco-targets-relwithdebinfo.cmake
+abinfo "Remove static target at "$BUILD_PATH/$DRACO_CMAKE
+sed -i '/# Import target "draco::draco_static"/,/# Import target "draco::draco"/d' \
+    $BUILD_PATH/$DRACO_CMAKE
+
+DRACO_CMAKE=usr/share/cmake/draco/draco-targets.cmake
+abinfo "Remove static target at "$BUILD_PATH/$DRACO_CMAKE
+sed -i '/# Create imported target draco::draco_static/,/# Create imported target draco::draco/d' \
+    $BUILD_PATH/$DRACO_CMAKE
+

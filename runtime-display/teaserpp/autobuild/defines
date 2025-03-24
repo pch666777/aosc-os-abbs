@@ -1,0 +1,14 @@
+PKGNAME=teaserpp
+PKGSEC=science
+PKGDES="C++ point cloud registration library"
+PKGDEP="eigen-3 libpmc tinyply pcl"
+
+BUILDDEP="gtest"
+
+CMAKE_AFTER=(
+    -DBUILD_TEASER_FPFH=ON    # NOTE: need pcl, compile passed, test failed
+    # -DBUILD_TESTS=ON        # NOTE: need gtest
+    -DBUILD_PYTHON_BINDINGS=OFF
+)
+
+ABTYPE=cmake

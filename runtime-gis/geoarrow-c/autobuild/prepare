@@ -1,0 +1,7 @@
+# Enable debug symbol
+
+# abinfo "Replace Debug to RelWithDebInfo at ${SRCDIR}/CMakeLists.txt..."
+# sed -i 's/CONFIG:Debug/CONFIG:RelWithDebInfo/g' ${SRCDIR}/CMakeLists.txt
+
+abinfo "Enable share library at ${SRCDIR}/CMakeLists.txt..."
+sed -i 's/add_library(geoarrow/add_library(geoarrow SHARED/' ${SRCDIR}/CMakeLists.txt

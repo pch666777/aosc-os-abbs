@@ -1,0 +1,4 @@
+VER=0.1.3
+SRCS="git::commit=tags/geoarrow-c-python-$VER::https://github.com/geoarrow/geoarrow-c"
+CHKSUMS="SKIP"
+# CHKUPDATE="anitya::id=138228"

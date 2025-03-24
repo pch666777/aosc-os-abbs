@@ -1,0 +1,11 @@
+PKGNAME=libpmc
+PKGSEC=libs
+PKGDES="Library for computing maximum cliques in large sparse graphs"
+PKGDEP=""
+
+BUILDDEP=""
+
+#CMAKE_AFTER=(
+#)
+
+ABTYPE=cmake

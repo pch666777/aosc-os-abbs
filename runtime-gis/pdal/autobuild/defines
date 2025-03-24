@@ -1,0 +1,43 @@
+PKGNAME=pdal
+PKGSEC=science
+PKGDES="C++ library for translating and manipulating point cloud data"
+PKGDEP="curl gcc-runtime gdal glibc hdf5 libgeotiff libunwind libxml2 \
+        openscenegraph openssl pcl postgresql proj vtk xerces-c zlib \
+        zstd draco tiledb teaserpp libnitf ceres apache-arrow libcpd"
+
+BUILDDEP="nlohmann-json gtest"
+
+# NOTE: see options.cmake
+CMAKE_AFTER=(
+    -DWITH_COMPLETION=TRUE
+    -DWITH_BACKTRACE=ON
+    -DWITH_GCS=TRUE
+    -DBUILD_PLUGIN_DRACO=TRUE           # NOTE: need draco
+    -DBUILD_PLUGIN_PGPOINTCLOUD=TRUE    # NOTE: need PostgreSQL
+    -DBUILD_PLUGIN_OPENSCENEGRAPH=TRUE  # NOTE: need openscenegraph
+    -DBUILD_PLUGIN_MBIO=TRUE
+    -DBUILD_PLUGIN_FBX=TRUE
+    -DBUILD_PLUGIN_E57=TRUE
+    -DBUILD_PLUGIN_HDF=TRUE             # NOTE: need hdf5 contain cpp lib
+    -DBUILD_PLUGIN_TILEDB=TRUE          # NOTE: need tiledb
+    -DBUILD_PLUGIN_ICEBRIDGE=TRUE
+    -DBUILD_PLUGIN_TEASER=TRUE          # NOTE: need teaserpp, pcl
+    -DBUILD_PLUGIN_NITF=TRUE            # NOTE: need libnitf(pdal-nitro), github/hobu/nitro
+    # -DBUILD_TOOLS_NITFWRAP=TRUE       # NOTE: many errors
+    -DBUILD_PLUGIN_TRAJECTORY=TRUE      # NOTE: need ceres-solver
+    -DBUILD_PLUGIN_ARROW=TRUE           # NOTE: need apache-arrow, contain orc
+    -DBUILD_PLUGIN_CPD=TRUE             # NOTE: need libcpd
+
+    # -DBUILD_PLUGIN_MATLAB=TRUE        # NOTE: need Matlab, business
+
+    # NOTE: rivlib and rdblib download at [www.riegl.com], business
+    # NOTE: look at [https://pdal.io/en/stable/stages/readers.rxp.html] for more information
+    # -DBUILD_PLUGIN_RIVLIB=TRUE
+    # -DBUILD_PLUGIN_RDBLIB=TRUE
+
+    -DWITH_TESTS=FALSE
+    -DENABLE_CTEST=FALSE
+    -DWITH_ABSEIL=FALSE         # NOTE: need re2 static
+)
+
+ABTYPE=cmakeninja

@@ -1,0 +1,17 @@
+PKGNAME=qgis
+PKGDES="Open source geographical information system (GIS)"
+PKGSEC=science
+PKGDEP="qt-5 proj geos sqlite gdal qwt5 expat qscintilla qca qtkeychain libzip protobuf \
+        exiv2 pdal draco gsl python-3 sip pyqt5 pyqt5-sip libspatialindex"
+BUILDDEP="flex bison pyqt-builder"
+
+CMAKE_AFTER=(
+    -DQGIS_MANUAL_SUBDIR=share/man
+    -DENABLE_TESTS=OFF
+)
+
+ABTYPE=cmakeninja
+
+# NOTE: QGIS generates many binding files during the compilation process,
+# NOTE: multi process compilation will disrupt the generation order.
+#NOPARALLEL=1

@@ -1,0 +1,6 @@
+VER=2.0
+SRCS="git::commit=tags/v$VER::https://github.com/MIT-SPARK/TEASER-plusplus"
+#SRCS="git::commit=tags/v$VER::https://gitcode.com/gh_mirrors/te/TEASER-plusplus.git"
+CHKSUMS="SKIP"
+# NOTE: no anitya now
+# CHKUPDATE="anitya::id=138228"

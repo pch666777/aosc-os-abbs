@@ -1,0 +1,18 @@
+PKGNAME=geoarrow-c
+PKGSEC=libs
+PKGDES="C and C++ library that define geospatial data storage standards for Apache Arrow"
+PKGDEP=""
+
+BUILDDEP="apache-arrow"
+
+CMAKE_AFTER=(
+    -DGEOARROW_BUILD_TESTS=OFF       #NOTE: need apache-arrow
+    -DGEOARROW_CODE_COVERAGE=OFF
+    -DGEOARROW_NAMESPACE=OFF
+    -DGEOARROW_ARROW_STATIC=OFF
+    -DGEOARROW_BUNDLE=OFF
+)
+
+ABTYPE=cmake
+
+

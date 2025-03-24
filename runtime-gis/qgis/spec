@@ -1,0 +1,5 @@
+VER=3.42.1final
+TAG_VER="final-$(echo ${VER%final} | tr '.' '_')"
+SRCS="git::commit=tags/${TAG_VER}::https://github.com/qgis/QGIS"
+CHKSUMS="SKIP"
+CHKUPDATE="anitya::id=5779"

@@ -1,0 +1,16 @@
+PKGNAME=spectra
+PKGSEC=libs
+PKGDES="Header-only C++ library for large scale eigenvalue problems"
+PKGDEP="eigen-3"
+
+BUILDDEP=""
+
+# NOTE: test and examples heple find errors, if necessary, enable it
+# CMAKE_AFTER=(
+#     -DBUILD_TESTS=ON
+#     -DBUILD_EXAMPLES=ON
+# )
+
+ABTYPE=cmake
+
+ABHOST=noarch

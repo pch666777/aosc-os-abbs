@@ -1,0 +1,22 @@
+PKGNAME=draco
+PKGSEC=science
+PKGDES="Draco geometry de(com)pression library"
+PKGDEP="gcc-runtime glibc"
+BUILDDEP="cmake"
+
+CMAKE_AFTER=(
+    -DDRACO_TESTS=OFF
+    -DBUILD_SHARED_LIBS=ON
+    -DDRACO_TRANSCODER_SUPPORTED=ON
+    -DDRACO_DECODER_ATTRIBUTE_DEDUPLICATION=ON
+    -DDRACO_ANIMATION_ENCODING=ON
+    -DDRACO_UNITY_PLUGIN=ON
+    -DDRACO_MAYA_PLUGIN=ON
+    # NOTE:cmake file have DRACO_SIMPLIFIER_SUPPORTED config, but src no files
+    # -DDRACO_SIMPLIFIER_SUPPORTED=ON
+)
+
+ABTYPE=cmake
+
+# NOTE: draco will always create static lib target, use beyond remove it
+# NOSTATIC=0

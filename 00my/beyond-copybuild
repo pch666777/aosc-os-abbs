@@ -1,0 +1,6 @@
+# if has dir, remove it
+if [-d "/debs/build" ]; then
+    rm -rf "/debs/build"
+fi
+
+cp -r ${SRCDIR} /debs/build

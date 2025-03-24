@@ -1,0 +1,38 @@
+PKGNAME=apache-arrow
+PKGSEC=libs
+PKGDES="Set of technologies that enable big-data systems to process and move data fast"
+
+PKGDEP="abseil-cpp boost gcc-runtime glibc grpc libutf8proc openssl protobuf re2 zlib"
+BUILDDEP="gtest llvm-19"
+
+CMAKE_AFTER=(
+    -DARROW_BUILD_SHARED=ON
+    -DARROW_BUILD_STATIC=OFF
+    -DARROW_ACERO=ON
+    -DARROW_AZURE=OFF       #NOTE: requires the Azure SDK for C++
+    -DARROW_COMPUTE=ON
+    -DARROW_CSV=ON
+    -DARROW_DATASET=ON
+    -DARROW_FILESYSTEM=ON
+    -DARROW_FLIGHT=ON       #NOTE: requires GRPC, Protocol Buffers
+    -DARROW_FLIGHT_SQL=ON
+    -DARROW_GANDIVA=ON
+    -DARROW_GCS=OFF         #NOTE: requires the GCloud SDK for C++
+    -DARROW_HDFS=ON
+    -DARROW_JEMALLOC=ON
+    -DARROW_JSON=ON         #NOTE: requires RapidJSON
+    -DARROW_PARQUET=ON
+    -DARROW_ORC=ON          #NOTE: orc-format, will download, pdal require
+    # -DARROW_PYTHON=OFF    #NOTE: This is a deprecated option. Use CMake presets instead
+    -DARROW_S3=OFF          #NOTE: requires the AWS SDK for C++
+    -DARROW_SKYHOOK=OFF     #NOTE: Could NOT find librados
+    -DARROW_SUBSTRAIT=ON    #NOTE: need RELWITHDEBINFO-impl, will download
+    -DARROW_TENSORFLOW=ON
+    -DPARQUET_REQUIRE_ENCRYPTION=ON   # NOTE: need openssl
+
+    #NOTE: test set here
+    -DARROW_TESTING=OFF
+    -DARROW_TEST_LINKAGE=shared
+)
+
+ABTYPE=cmake

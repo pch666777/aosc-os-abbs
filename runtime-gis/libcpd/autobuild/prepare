@@ -1,0 +1,5 @@
+# Enable shared libraries
+
+sed -i 's/Library-C++ STATIC/Library-C++ SHARED/' "${SRCDIR}/CMakeLists.txt"
+
+sed -i 's/Jsoncpp STATIC/Jsoncpp SHARED/' "${SRCDIR}/components/jsoncpp/CMakeLists.txt"

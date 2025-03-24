@@ -1,0 +1,7 @@
+PKGNAME=libspatialindex
+PKGSEC=science
+PKGDES="Lightweight spatial index library, providing fast and efficient multi-dimensional spatial data indexing functionality."
+PKGDEP="gcc-runtime glibc"
+BUILDDEP="cmake"
+
+ABTYPE=cmake
