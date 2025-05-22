@@ -3,3 +3,10 @@ PKGSEC=libs
 PKGDEP="flann glibc"
 BUILDDEP="eigen-3"
 PKGDES="The Portable Coroutine Library (PCL)"
+
+CMAKE_AFTER=(
+    -DPCL_FLANN_REQUIRED_TYPE=SHARED
+    -DPCL_QHULL_REQUIRED_TYPE=SHARED
+)
+
+ABTYPE=cmakeninja
