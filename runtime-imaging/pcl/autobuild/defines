@@ -1,7 +1,7 @@
 PKGNAME=pcl
 PKGSEC=libs
-PKGDEP="flann glibc"
-BUILDDEP="eigen-3"
+PKGDEP="flann glibc qhull vtk"
+BUILDDEP="eigen-3 nlohmann-json"
 PKGDES="The Portable Coroutine Library (PCL)"
 
 CMAKE_AFTER=(
