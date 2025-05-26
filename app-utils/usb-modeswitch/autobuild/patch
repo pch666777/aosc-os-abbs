@@ -6,3 +6,12 @@ sed -e 's|/usr/sbin/usb_mode|/usr/bin/usb_mode|g' \
 abinfo "Downloading usb-modeswitch-data ..."
 wget http://www.draisberghof.de/usb_modeswitch/usb-modeswitch-data-20170120.tar.bz2
 tar xvf usb-modeswitch-data-20170120.tar.bz2
+
+abinfo "Applying usb-modeswitch-data patches ..."
+for PATCH_FILE in autobuild/patches/*.patch; do
+    if [ -f "$PATCH_FILE" ]; then
+        abinfo "Applying  $PATCH_FILE ..."
+        patch -p2 -d usb-modeswitch-data-20170120 < "$PATCH_FILE"
+    fi
+done
+
