@@ -1,6 +1,7 @@
 PKGNAME=pcl
 PKGSEC=libs
-PKGDEP="flann glibc qhull vtk"
+PKGDEP="gcc-runtime glibc boost libpcap libpng libusb lz4 qhull \
+        vtk x11-lib"
 BUILDDEP="eigen-3"
 PKGDES="The Portable Coroutine Library (PCL)"
 
